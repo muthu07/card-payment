@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-card>
+    <p class="make-payment">
+      <button mat-raised-button color="primary" [routerLink]="'/card-payment'">
+        Make Payment
+      </button>
+    </p>
+    <div *ngIf="cardData.creditCardNumber">
+      <h2>Card Details</h2>
+      <ul>
+        <li>
+          <strong>Credit Card Number: </strong> {{ cardData.creditCardNumber }}
+        </li>
+        <li><strong>Card Holder: </strong> {{ cardData.cardHolder }}</li>
+        <li>
+          <strong>Expiration Date: </strong> {{ cardData.expirationDate }}
+        </li>
+        <li *ngIf="cardData.securityCode">
+          <strong>Security Code: </strong> {{ cardData.securityCode }}
+        </li>
+        <li><strong>Amount: </strong> {{ cardData.amount }}</li>
+      </ul>
+
+      <!-- <mat-list role="list">
+            <mat-list-item role="listitem">Item 1</mat-list-item>
+            <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+        </mat-list> -->
+    </div>
+  </mat-card>
+</div>

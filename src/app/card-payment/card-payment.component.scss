@@ -1,31 +1,38 @@
 .fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
+  /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
-  }
-  
-  .container {
-    padding: 10px;
-  }
-  
-  .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .form-element {
-    padding: 5px 0px 8px 2px;
-    width: 100%;
-  }
-  
-  .button {
-    width: 100%;
-  }
-
-  .mat-form-field {
-    display: block;
+  flex: 1 1 auto;
 }
-.error-message{
-    color:#f44336;
+
+.container {
+  padding: 10px;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 25%;
+}
+
+.form-element {
+  padding: 5px 0px 8px 2px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}
+
+.mat-form-field {
+  display: block;
+}
+.error-message {
+  color: #f44336;
+}
+button {
+  margin-right: 15px;
+}
+.title {
+  text-align: center;
 }

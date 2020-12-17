@@ -13,8 +13,8 @@ export class CardEffects {
   uploadFile$ = createEffect(() =>
     this.actions$.pipe(
       ofType(addCardDetail.type),
-      switchMap(() => {
-        return this.cardService.makePayment();
+      switchMap((cardDetails) => {
+        return this.cardService.makePayment(cardDetails);
         //.pipe(catchError(this.paymentError))
       }),
       map((data) => {

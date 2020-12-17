@@ -7,17 +7,12 @@ import { Observable, of } from "rxjs";
 export class CardService {
   constructor(private http: HttpClient) {}
 
-  makePayment(): Observable<any> {
+  makePayment(cardDetails): Observable<any> {
     const paymentURL = "";
     const bodyOptions = {};
-    const respone = {
-      creditCardNumber: "11111",
-      cardHolder: "mani",
-      expirationDate: new Date(),
-      securityCode: "111",
-      amount: 10,
-    };
-    return of(respone);
+    cardDetails = Object.assign({}, cardDetails, {expirationDate: cardDetails.expirationDate.toDate()});
+    return of(cardDetails);
+    //POST method API call will implement here
     //return this.http.post(paymentURL, bodyOptions);
   }
 }

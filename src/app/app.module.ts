@@ -15,9 +15,10 @@ import { MaterialModule } from "./app.material.module";
 import { AppRoutingModule } from "./app.router.module";
 import { from } from "rxjs";
 import { HttpClientModule } from "@angular/common/http";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, CardPaymentComponent],
+  declarations: [AppComponent, CardPaymentComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

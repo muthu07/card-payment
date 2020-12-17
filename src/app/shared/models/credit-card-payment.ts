@@ -4,4 +4,5 @@ export interface CreditCardPayment {
     expirationDate: Date;
     securityCode?: string;
     amount: number;
+    type?: string;
 }

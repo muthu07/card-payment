@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { CreditCardPayment } from "../shared/models/credit-card-payment";
 import { Store } from "@ngrx/store";
 import { State as CardPaymentState } from "../core/state/reducers";
@@ -15,6 +16,7 @@ export class CardPaymentComponent implements OnInit {
   future = new Date();
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private cardPaymentStore: Store<CardPaymentState>
   ) {
     this.future.setDate(this.future.getDate() + 1);
@@ -33,13 +35,14 @@ export class CardPaymentComponent implements OnInit {
   makePayment() {
     if (this.creditCardPaymentForm.valid) {
       const cardDetails: CreditCardPayment = {
-        creditCardNumber: "11111",
-        cardHolder: "mani",
-        expirationDate: new Date(),
-        securityCode: "111",
-        amount: 10,
+        creditCardNumber: this.f["creditCardNumber"].value,
+        cardHolder: this.f["cardHolder"].value,
+        expirationDate: this.f["expirationDate"].value,
+        securityCode: this.f["securityCode"].value,
+        amount: this.f["amount"].value,
       };
       this.cardPaymentStore.dispatch(addCardDetail(cardDetails));
+      this.router.navigate(["/home"]);
     }
   }
 
