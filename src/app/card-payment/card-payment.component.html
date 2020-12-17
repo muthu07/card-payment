@@ -1,0 +1,53 @@
+<div class="container">
+    <mat-card>
+        <form [formGroup]="creditCardPaymentForm" class="example-form"  class="form" (submit)="makePayment()">
+            <mat-form-field class="form-element" appearance="outline">
+                <mat-label>Credit Card Number</mat-label>
+                <input matInput formControlName="creditCardNumber" maxlength="256" placeholder="Enter Credit Card Number!">
+                <mat-hint 
+                class="error-message"
+                *ngIf="f['creditCardNumber'].invalid && (f['creditCardNumber'].touched || f['creditCardNumber'].dirty)" 
+                align="start">Please enter credit card number.
+                </mat-hint>
+               <!--  <mat-hint align="end">{{message.value.length}} / 256</mat-hint> -->
+              </mat-form-field>
+              <mat-form-field class="form-element" appearance="outline">
+                <mat-label>Card Holder</mat-label>
+                <input matInput formControlName="cardHolder" maxlength="256" placeholder="Enter Card Holder Name!">
+                <mat-hint 
+                class="error-message"
+                *ngIf="f['cardHolder'].invalid && (f['cardHolder'].touched || f['cardHolder'].dirty)" 
+                align="start">Please enter card holder name.
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field class="form-element" appearance="outline">
+                <mat-label>Expiration Date</mat-label>
+                <input matInput [matDatepicker]="picker2" [min]="future" formControlName="expirationDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                <mat-hint 
+                class="error-message"
+                *ngIf="f['expirationDate'].invalid && (f['expirationDate'].touched || f['expirationDate'].dirty)" 
+                align="start">Please select expiration date.
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field class="form-element" appearance="outline">
+                <mat-label>Security Code</mat-label>
+                <input matInput formControlName="securityCode" maxlength="3" placeholder="Enter Security Code!">
+                <mat-hint align="end"><i>3 digits</i></mat-hint>
+              </mat-form-field>
+              <mat-form-field class="form-element" appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input type="number" matInput formControlName="amount" min="1" maxlength="256" placeholder="Enter Amount">
+                <mat-hint 
+                class="error-message"
+                *ngIf="f['amount'].invalid && (f['amount'].touched || f['amount'].dirty)" 
+                align="start">Please enter amount.
+                </mat-hint>
+              </mat-form-field>
+              <div class="form-element">
+                <button mat-raised-button color="primary">Submit</button>
+              </div>
+          </form>
+    </mat-card>
+</div>
