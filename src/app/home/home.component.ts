@@ -9,14 +9,14 @@ import { addCardDetail } from "../core/state/actions/card.actions";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  cardData: CreditCardPayment;
+  paymentData;
 
   constructor(private cardPaymentStore: Store<CardPaymentState>) {}
 
   ngOnInit(): void {
     this.cardPaymentStore.select("card").subscribe((cardDetails: any) => {
       if (cardDetails.cardData) {
-        this.cardData = cardDetails.cardData;
+       this.paymentData = cardDetails.cardData;
       }
     });
   }

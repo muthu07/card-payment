@@ -14,7 +14,10 @@ export const cardReducer = createReducer(
     return {
       ...state,
       cardData: {
-        ...card,
+        ...state.cardData,
+        [card.creditCardNumber]: {
+          ...card,
+        },
       },
     };
   })

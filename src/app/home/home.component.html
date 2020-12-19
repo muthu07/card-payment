@@ -5,29 +5,22 @@
         Make Payment
       </button>
     </p>
-    <div *ngIf="cardData.creditCardNumber">
+    <div *ngIf="(paymentData  | json) != '{}'">
       <h2>Card Details</h2>
-      <ul>
+      <ul *ngFor="let card of paymentData | keyvalue">
         <li>
-          <strong>Credit Card Number: </strong> {{ cardData.creditCardNumber }}
+          <strong>Credit Card Number: </strong>
+          {{ card.value.creditCardNumber }}
         </li>
-        <li><strong>Card Holder: </strong> {{ cardData.cardHolder }}</li>
+        <li><strong>Card Holder: </strong> {{ card.value.cardHolder }}</li>
         <li>
-          <strong>Expiration Date: </strong> {{ cardData.expirationDate }}
+          <strong>Expiration Date: </strong> {{ card.value.expirationDate }}
         </li>
-        <li *ngIf="cardData.securityCode">
-          <strong>Security Code: </strong> {{ cardData.securityCode }}
+        <li *ngIf="card.value.securityCode">
+          <strong>Security Code: </strong> {{ card.value.securityCode }}
         </li>
-        <li><strong>Amount: </strong> {{ cardData.amount }}</li>
+        <li><strong>Amount: </strong> {{ card.value.amount }}</li>
       </ul>
-
-      <!-- <mat-list role="list">
-            <mat-list-item role="listitem">Item 1</mat-list-item>
-            <mat-list-item role="listitem">Item 2</mat-list-item>
-            <mat-list-item role="listitem">Item 3</mat-list-item>
-            <mat-list-item role="listitem">Item 3</mat-list-item>
-            <mat-list-item role="listitem">Item 3</mat-list-item>
-        </mat-list> -->
     </div>
   </mat-card>
 </div>

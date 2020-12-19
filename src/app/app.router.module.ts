@@ -5,10 +5,6 @@ import { HomeComponent } from "./home/home.component";
 import { CardPaymentComponent } from "./card-payment/card-payment.component";
 const routes: Routes = [
   {
-    path: "",
-    component: AppComponent,
-  },
-  {
     path: "home",
     component: HomeComponent,
   },
